@@ -25,4 +25,9 @@ class EmployeeDB extends BlackboardComponent {
 		blackboard.writeEmployeeData(id, employee);
 		System.out.println(employee[index]);
 	}
+
+	public boolean saveEmployeesToFile() {
+		// returns true if successful
+		return blackboard.saveEmployeesToFile();
+	}
 }
