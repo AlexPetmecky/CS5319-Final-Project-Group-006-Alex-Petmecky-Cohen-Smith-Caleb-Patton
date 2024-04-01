@@ -1,3 +1,5 @@
+import frontend.mainfront;
+
 public class Main {
 	Blackboard blackboard;
 	EmployeeDB employeedb;
@@ -9,7 +11,10 @@ public class Main {
 	}
 	
     public static void main(String[] args) {
+		mainfront mf = new mainfront();
+		mf.setup();
     	new Main();
+
     }
     
 }
