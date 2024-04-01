@@ -13,8 +13,8 @@ public class Employee {
         return id;
     }
 
-    public EmployeeStatus getStatus() {
-        return status;
+    public int getStatus() {
+        return status.getStatus();
     }
 
     public void setStatus(int status) {
