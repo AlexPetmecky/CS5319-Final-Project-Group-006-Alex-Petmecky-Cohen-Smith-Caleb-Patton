@@ -4,12 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class mainfront {
-    public static JTextField txt = new JTextField("Type Here",1);
-    public static JButton button = new JButton("Submit");
+    public static JTextField txt = new JTextField("Employee ID",1);
+    public static JButton button_in = new JButton("Clock in");
+    public static JButton button_out = new JButton("Clock Out");
 
     public void setup(){
         makeTextField();
-        makeButton();
+        makeButtonOUT();
+        makeButtonIN();
 
         JFrame frame = new JFrame();
 
@@ -18,7 +20,8 @@ public class mainfront {
 
 
         // adding button in JFrame
-        frame.add(button);
+        frame.add(button_in);
+        frame.add(button_out);
 
         //frame.pack();
         // 400 width and 500 height
@@ -32,14 +35,14 @@ public class mainfront {
 
     }
 
-    public void makeButton(){
+    public void makeButtonIN(){
         // Creating instance of JButton
         //JButton button = new JButton(" Submit");
 
         // x axis, y axis, width, height
-        button.setBounds(150, 200, 220, 50);
+        button_in.setBounds(150, 200, 220, 50);
 
-        button.addActionListener(new ActionListener() {
+        button_in.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String newtxt = txt.getText();
@@ -50,8 +53,26 @@ public class mainfront {
         });
 
 
+
     }
 
+    public void makeButtonOUT() {
+        // Creating instance of JButton
+        //JButton button = new JButton(" Submit");
+
+        // x axis, y axis, width, height
+        button_out.setBounds(150, 250, 220, 50);
+
+        button_out.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String newtxt = txt.getText();
+                txt.setText("");
+                System.out.println(newtxt);
+
+            }
+        });
+    }
     public void makeTextField(){
         //JTextField txt = new JTextField();
         txt.setBounds(150,150,220,50);
