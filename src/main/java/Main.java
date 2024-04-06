@@ -14,5 +14,11 @@ public class Main {
 		blackboard = new Blackboard();
 		employeedb = new EmployeeDB(blackboard);
 	}
+	
+	public void terminate() {
+		blackboard.terminate();
+		// add code to close the GUI
+		
+	}
     
 }

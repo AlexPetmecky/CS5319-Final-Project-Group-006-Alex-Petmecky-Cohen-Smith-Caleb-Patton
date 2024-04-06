@@ -1,4 +1,9 @@
 import java.util.HashMap;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import java.io.FileNotFoundException;
 
 class BlackboardComponent {
 	Blackboard blackboard;
@@ -13,21 +18,19 @@ class BlackboardComponent {
 class EmployeeDB extends BlackboardComponent {
 	public EmployeeDB(Blackboard bb) {
 		super(bb);
-		valueMap = blackboard.employeeValueToIndexMap;
 	}
 
 	//test method
-	public synchronized void updateDB(int id, String value_name, String value) {
-		String[] employee = blackboard.getEmployeeData(id);
-		int index = valueMap.get(value_name);
-		System.out.println(employee[index]);
-		employee[index] = value;
+	public synchronized void updateDB(int id, String value, String write) {
+		JSONObject employee = blackboard.getEmployeeData(id);
+		System.out.println(employee.get(value));
+		employee.replace(value, write);
 		blackboard.writeEmployeeData(id, employee);
-		System.out.println(employee[index]);
+		System.out.println(blackboard.getEmployeeData(id));
 	}
 
-	public boolean saveEmployeesToFile() {
+	public void saveEmployeesToFile() {
 		// returns true if successful
-		return blackboard.saveEmployeesToFile();
+		blackboard.terminate();
 	}
 }
