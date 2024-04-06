@@ -12,6 +12,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class Blackboard {
 
@@ -20,11 +22,13 @@ public class Blackboard {
 	
 	// store these for easier editing if needed
 	String employeeDirectory = "data/employees.json";
+	String dateDirectory = "data/dates.json";
+	
 	
 	public Blackboard() {
 		directory = new HashMap<String, DataEntry>();
 		directory.put("employees", new DataEntry(employeeDirectory));
-
+		directory.put("dates", new DataEntry(dateDirectory));
 	}
 
 	
@@ -48,6 +52,17 @@ public class Blackboard {
 		array.add(id, updated);
 		directory.get("employees").array = array;
 		return true;
+	}
+	
+	public JSONObject getDateData(String date) {
+		JSONObject object = (JSONObject)directory.get("dates").array.getFirst();
+		if(!object.containsKey(date)) {
+			object.put(date, new JSONObject());
+		}
+		return (JSONObject)object.get(date);
+	}
+	public synchronized void writeDateData(String date, JSONObject updated) {
+		((JSONObject)directory.get("dates").array.getFirst()).put(date, updated);
 	}
 	public synchronized void test(String pr) {
 		System.out.println(pr);
