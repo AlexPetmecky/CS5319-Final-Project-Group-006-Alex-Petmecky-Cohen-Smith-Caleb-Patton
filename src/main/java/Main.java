@@ -1,12 +1,10 @@
-import frontend.mainfront;
-
 public class Main {
 	Blackboard blackboard;
 	EmployeeDB employeedb;
 
 	public static void main(String[] args) {
-		mainfront mf = new mainfront();
-		mf.setup();
+		//mainfront mf = new mainfront();
+		//mf.setup();
 		new Main();
 	}
 	

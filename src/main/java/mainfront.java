@@ -1,4 +1,3 @@
-package frontend;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +6,8 @@ public class mainfront {
     public static JTextField txt = new JTextField("Employee ID",1);
     public static JButton button_in = new JButton("Clock in");
     public static JButton button_out = new JButton("Clock Out");
+
+    private SubmitHandler listener;
 
     public void setup(){
         makeTextField();
@@ -35,6 +36,14 @@ public class mainfront {
 
     }
 
+    public void setSubmitIn (SubmitHandler listener) {
+        this.listener = listener;
+    }
+
+    public void setSubmitOut (SubmitHandler listener) {
+        this.listener = listener;
+    }
+
     public void makeButtonIN(){
         // Creating instance of JButton
         //JButton button = new JButton(" Submit");
@@ -48,6 +57,7 @@ public class mainfront {
                 String newtxt = txt.getText();
                 txt.setText("");
                 System.out.println(newtxt);
+                if (listener != null) listener.submitIn (newtxt);
 
             }
         });
@@ -69,6 +79,7 @@ public class mainfront {
                 String newtxt = txt.getText();
                 txt.setText("");
                 System.out.println(newtxt);
+                if (listener != null) listener.submitOut (newtxt);
 
             }
         });
