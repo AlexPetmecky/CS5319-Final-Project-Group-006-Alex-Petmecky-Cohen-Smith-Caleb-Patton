@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="875b95e4-2851-43ba-9dc1-cb5641e37d0e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dates.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/employees.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/Blackboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/BlackboardComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/EmployeeDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/frontend/mainfront$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/frontend/mainfront.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blackboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BlackboardComponents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SubmitHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainfront.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2eRQ7ppRiSgsrw88HX0miw4DDpK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.RMS [Main.java].executor": "Run",
+    "Maven.RMS [java,Main.java].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "architecture",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/cohen/Data/Projects/SoftwareArch/RestaurantManagementSystem",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="RestaurantManagementSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="RestaurantManagementSystem" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="875b95e4-2851-43ba-9dc1-cb5641e37d0e" name="Changes" comment="" />
+      <created>1711864747706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711864747706</updated>
+      <workItem from="1711864748760" duration="192000" />
+      <workItem from="1711919387260" duration="59000" />
+      <workItem from="1711919606002" duration="319000" />
+      <workItem from="1711919987003" duration="49000" />
+      <workItem from="1711922199265" duration="722000" />
+      <workItem from="1711934306536" duration="1886000" />
+      <workItem from="1711987607690" duration="516000" />
+      <workItem from="1711989895455" duration="685000" />
+      <workItem from="1711990634460" duration="546000" />
+      <workItem from="1711993099982" duration="130000" />
+      <workItem from="1712013037646" duration="2170000" />
+      <workItem from="1712353318354" duration="93000" />
+      <workItem from="1712519263266" duration="51000" />
+      <workItem from="1712532606552" duration="412000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+</project>
