@@ -56,9 +56,28 @@ class EmployeeDB extends BlackboardComponent {
 		return true;
 		
 	}
+	
+	public synchronized String getEmployeeStringData(int id) {
+		JSONObject employee = blackboard.getEmployeeData(id);
+		return employee.toString();
+	}
 
 	public void saveEmployeesToFile() {
 		// returns true if successful
 		blackboard.terminate();
+	}
+}
+
+class DateDB extends BlackboardComponent {
+	public DateDB(Blackboard bb) {
+		super(bb);
+	}
+	public synchronized String getDateString(String date) {
+		JSONObject dateobject = blackboard.getDateData(date);
+		return dateobject.toString();
+	}
+	public synchronized String getAllDateStrings() {
+		JSONObject dateobject = blackboard.getMasterDateObject();
+		return dateobject.toString();
 	}
 }

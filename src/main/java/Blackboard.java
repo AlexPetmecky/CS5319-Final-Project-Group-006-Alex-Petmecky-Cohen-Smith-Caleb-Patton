@@ -64,6 +64,9 @@ public class Blackboard {
 	public synchronized void writeDateData(String date, JSONObject updated) {
 		((JSONObject)directory.get("dates").array.getFirst()).put(date, updated);
 	}
+	public JSONObject getMasterDateObject() {
+		return (JSONObject)directory.get("dates").array.getFirst();
+	}
 	public synchronized void test(String pr) {
 		System.out.println(pr);
 	}
