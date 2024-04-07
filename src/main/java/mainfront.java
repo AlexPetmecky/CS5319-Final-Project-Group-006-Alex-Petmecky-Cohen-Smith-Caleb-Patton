@@ -6,6 +6,7 @@ public class mainfront {
     public static JTextField txt = new JTextField("Employee ID",1);
     public static JButton button_in = new JButton("Clock in");
     public static JButton button_out = new JButton("Clock Out");
+    public static JButton showJson = new JButton("Show Current Employees");
 
     private SubmitHandler listener;
 
@@ -13,6 +14,7 @@ public class mainfront {
         makeTextField();
         makeButtonOUT();
         makeButtonIN();
+        makeShowButton();
 
         JFrame frame = new JFrame();
 
@@ -23,6 +25,8 @@ public class mainfront {
         // adding button in JFrame
         frame.add(button_in);
         frame.add(button_out);
+
+        frame.add(showJson);
 
         //frame.pack();
         // 400 width and 500 height
@@ -89,5 +93,31 @@ public class mainfront {
         txt.setBounds(150,150,220,50);
 
 
+    }
+
+    public void makeShowButton(){
+        showJson.setBounds(150, 300, 220, 50);
+
+        showJson.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+
+
+
+                JLabel label1 = new JLabel("Test");
+                label1.setBounds(150,150,220,50);
+                frame.add(label1);
+
+                frame.setSize(500, 600);
+
+                // using no layout managers
+                frame.setLayout(null);
+
+                // making the frame visible
+                frame.setVisible(true);
+
+            }
+        });
     }
 }

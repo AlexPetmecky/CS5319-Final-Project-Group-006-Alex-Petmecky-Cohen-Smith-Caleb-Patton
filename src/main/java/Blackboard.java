@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.time.LocalTime;
 import java.time.LocalDate;
 
-public class Blackboard {
+public class Blackboard implements SubmitHandler{
 
 	// store all data entries
 	HashMap<String, DataEntry> directory;
@@ -29,7 +29,15 @@ public class Blackboard {
 		directory = new HashMap<String, DataEntry>();
 		directory.put("employees", new DataEntry(employeeDirectory));
 		directory.put("dates", new DataEntry(dateDirectory));
+
+
+
+		directory.keySet();
+
 	}
+
+
+
 
 	
 	
@@ -55,20 +63,31 @@ public class Blackboard {
 	}
 	
 	public JSONObject getDateData(String date) {
-		JSONObject object = (JSONObject)directory.get("dates").array.getFirst();
+		JSONObject object = (JSONObject)directory.get("dates").array.get(0);
+
 		if(!object.containsKey(date)) {
 			object.put(date, new JSONObject());
 		}
 		return (JSONObject)object.get(date);
 	}
 	public synchronized void writeDateData(String date, JSONObject updated) {
-		((JSONObject)directory.get("dates").array.getFirst()).put(date, updated);
+		((JSONObject)directory.get("dates").array.get(0)).put(date, updated);
 	}
 	public synchronized void test(String pr) {
 		System.out.println(pr);
 	}
-	
 
+
+	@Override
+	public void submitIn(String idNum) {
+		System.out.println("SUBMITTED IN FROM BLACKBOARD");
+		//writeEmployeeData(idNum))
+	}
+
+	@Override
+	public void submitOut(String idNum) {
+		System.out.println("SUBMITTED OUT FROM BLACKBOARD");
+	}
 }
 
 class DataEntry{
