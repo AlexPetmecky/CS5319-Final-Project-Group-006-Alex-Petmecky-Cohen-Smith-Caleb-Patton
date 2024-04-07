@@ -4,8 +4,8 @@ public class Main {
 	DateDB datedb;
 
 	public static void main(String[] args) {
-		//mainfront mf = new mainfront();
-		//mf.setup();
+		mainfront mf = new mainfront();
+		mf.setup();
 		new Main();
 	}
 	
