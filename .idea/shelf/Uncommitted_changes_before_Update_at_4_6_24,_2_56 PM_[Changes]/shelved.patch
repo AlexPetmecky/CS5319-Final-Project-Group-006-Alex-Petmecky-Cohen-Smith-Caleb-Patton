@@ -1,0 +1,61 @@
+Index: src/main/java/Blackboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\nimport java.io.BufferedReader;\nimport java.io.FileReader;\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.io.File;\nimport java.util.HashMap;\nimport java.io.FileWriter;\nimport org.json.simple.JSONObject;\nimport org.json.simple.JSONArray;\nimport org.json.simple.parser.JSONParser;\nimport org.json.simple.parser.ParseException;\nimport java.io.FileNotFoundException;\n\npublic class Blackboard {\n\n\tprivate HashMap<Integer, String[]> employees;\n\tpublic HashMap<String, Integer> employeeValueToIndexMap;\n\t\n\tpublic Blackboard() {\n\t\tinitIndexMap();\n\t\temployees = new HashMap<Integer, String[]>();\n\n\t\treadEmployeesFromFile();\n\t}\n\n\tprivate void initIndexMap() {\n\t\temployeeValueToIndexMap = new HashMap<String, Integer>();\n\t\temployeeValueToIndexMap.put(\"firstname\", 0);\n\t\temployeeValueToIndexMap.put(\"lastname\", 1);\n\t\temployeeValueToIndexMap.put(\"hoursworked\", 2);\n\t}\n\tpublic synchronized void test(String pr) {\n\t\tSystem.out.println(pr);\n\t}\n\tpublic String[] getEmployeeData(int id) {\n\t\treturn employees.get(id);\n\t}\n\tpublic boolean writeEmployeeData(int id, String[] updated) {\n\t\tif(!employees.containsKey(id)) {\n\t\t\treturn false;\n\t\t}\n\t\temployees.put(id, updated);\n\t\treturn true;\n\t}\n\n\tpublic boolean saveEmployeesToFile() {\n\t\t// returns true if successful\n\t\treturn writeEmployeesToFile();\n\t}\n\n\tprivate boolean writeEmployeesToFile() {\n\t\ttry {\n\t\t\tFileWriter file = new FileWriter(\"data/employees.json\");\n\t\t\tJSONArray outerArray = new JSONArray();\n\t\t\t//for each value in the hashmap\n\t\t\tfor (Integer key : employees.keySet()) {\n\t\t\t\tJSONObject innerObject = new JSONObject();\n\t\t\t\tinnerObject.put(\"id\", key);\n\t\t\t\tinnerObject.put(\"firstname\", employees.get(key)[employeeValueToIndexMap.get(\"firstname\")]);\n\t\t\t\tinnerObject.put(\"lastname\", employees.get(key)[employeeValueToIndexMap.get(\"lastname\")]);\n\t\t\t\tinnerObject.put(\"hoursworked\", employees.get(key)[employeeValueToIndexMap.get(\"hoursworked\")]);\n\t\t\t\touterArray.add(innerObject);\n\t\t\t}\n\t\t\tfile.write(outerArray.toJSONString());\n\t\t\tfile.close();\n\t\t\treturn true;\n\t\t} catch (IOException e) {\n\t\t\tSystem.out.println(\"An error occurred.\");\n\t\t\te.printStackTrace();\n\t\t\treturn false;\n\t\t}\n\t}\n\n\tprivate boolean readEmployeesFromFile() {\n\t\t// returns true if successful\n\t\tJSONParser parser = new JSONParser();\n\t\ttry {\n\t\t\tObject obj = parser.parse(new FileReader(\"data/employees.json\"));\n\t\t\tJSONArray outerArray = (JSONArray) obj;\n\t\t\tfor (Object o : outerArray) {\n\t\t\t\tString[] employeeData = new String[3];\n\t\t\t\tJSONObject innerObject = (JSONObject) o;\n\n\t\t\t\t//get hours worked\n\t\t\t\tString hoursworked = innerObject.get(\"hoursworked\").toString();\n\t\t\t\temployeeData[employeeValueToIndexMap.get(\"hoursworked\")] = hoursworked;\n\n\t\t\t\t//get firstname\n\t\t\t\tString firstname = innerObject.get(\"firstname\").toString();\n\t\t\t\temployeeData[employeeValueToIndexMap.get(\"firstname\")] = firstname;\n\n\t\t\t\t//get lastname\n\t\t\t\tString lastname = innerObject.get(\"lastname\").toString();\n\t\t\t\temployeeData[employeeValueToIndexMap.get(\"lastname\")] = lastname;\n\n\t\t\t\t//get id\n\t\t\t\tint id = Integer.parseInt(innerObject.get(\"id\").toString());\n\t\t\t\temployees.put(id, employeeData);\n\t\t\t}\n\t\t\treturn true;\n\t\t} catch (FileNotFoundException e) {\n\t\t\tSystem.out.println(\"Failed to load employees: file not found.\");\n\t\t} catch (IOException e) {\n\t\t\tSystem.out.println(\"IOException error occurred.\");\n\t\t} catch (ParseException e) {\n\t\t\tSystem.out.println(\"ParseException error occurred.\");\n\t\t}\n\t\treturn false;\n\t}\n\n\t// Old reading from files\n\t/*\n\tprivate void initMap(String directory, HashMap<Integer, String[]> map) {\n\t\t// get all files in a directory\n\t\tFile dir = new File(directory);\n\t\tFile files[] = dir.listFiles();\n\t\tfor(File entry : files) {\n\t\t\tList<String> tempList = new ArrayList<>();\n\t\t\t// read line of a file\n\t\t\ttry (BufferedReader br = new BufferedReader(new FileReader(entry))) {\n\t            String line;\n\t            // add this line to the array assigned to this employee\n\t            while ((line = br.readLine()) != null) {\n\t                tempList.add(line);\n\t            }\n\t        } catch (IOException e) {\n\t            System.err.println(\"Error reading \" + e.getMessage());\n\t        }\n\t\t\tString[] result = tempList.toArray(new String[tempList.size()]);\n\n\t\t\t// just for getting the number\n\t\t\tString fileName = entry.getName();\n            int lastIndex = fileName.lastIndexOf('.');\n            String nameWithoutExtension = (lastIndex == -1) ? fileName : fileName.substring(0, lastIndex);\n\t\t\tmap.put(Integer.parseInt(nameWithoutExtension), result);\n\t\t}\n\t}\n\t//*/\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Blackboard.java b/src/main/java/Blackboard.java
+--- a/src/main/java/Blackboard.java	
++++ b/src/main/java/Blackboard.java	
+@@ -1,19 +1,16 @@
+ 
+-import java.io.BufferedReader;
+ import java.io.FileReader;
+ import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.List;
+-import java.io.File;
+ import java.util.HashMap;
+ import java.io.FileWriter;
++
+ import org.json.simple.JSONObject;
+ import org.json.simple.JSONArray;
+ import org.json.simple.parser.JSONParser;
+ import org.json.simple.parser.ParseException;
+ import java.io.FileNotFoundException;
+ 
+-public class Blackboard {
++public class Blackboard implements SubmitHandler{
+ 
+ 	private HashMap<Integer, String[]> employees;
+ 	public HashMap<String, Integer> employeeValueToIndexMap;
+@@ -23,6 +20,28 @@
+ 		employees = new HashMap<Integer, String[]>();
+ 
+ 		readEmployeesFromFile();
++
++		mainfront mf = new mainfront();
++		mf.setup();
++		mf.setSubmitIn(this);
++
++
++	}
++
++	public void submitIn (String empID) {
++		//do whatever you like when SomeEvent happens.
++		System.out.println("SUBMIT IN CALLED FROM BLACKBOARD");
++		System.out.println("-----");
++		System.out.println(empID);
++		System.out.println("-----");
++	}
++
++	public void submitOut (String empID) {
++		//do whatever you like when SomeEvent happens.
++		System.out.println("SUBMIT OUT CALLED FROM BLACKBOARD");
++		System.out.println("-----");
++		System.out.println(empID);
++		System.out.println("-----");
+ 	}
+ 
+ 	private void initIndexMap() {

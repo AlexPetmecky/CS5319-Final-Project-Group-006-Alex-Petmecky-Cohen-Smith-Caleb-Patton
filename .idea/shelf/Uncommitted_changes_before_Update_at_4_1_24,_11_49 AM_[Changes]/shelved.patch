@@ -1,0 +1,77 @@
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import backend.Blackboard;\nimport backend.EmployeeStatus;\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n\n        Blackboard blackboard = new Blackboard();\n        blackboard.readEmployeesFromFile();\n        blackboard.updateAllEmployeeStatus(EmployeeStatus.IN);\n        blackboard.writeEmployeesToFile();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Main.java b/src/main/java/Main.java
+--- a/src/main/java/Main.java	(revision 6b5814264a64a123818cdf1788269758eb1de7ac)
++++ b/src/main/java/Main.java	(date 1711989792225)
+@@ -1,5 +1,6 @@
+ import backend.Blackboard;
+ import backend.EmployeeStatus;
++import frontend.mainfront;
+ 
+ public class Main {
+     public static void main(String[] args) {
+@@ -9,5 +10,7 @@
+         blackboard.readEmployeesFromFile();
+         blackboard.updateAllEmployeeStatus(EmployeeStatus.IN);
+         blackboard.writeEmployeesToFile();
++        mainfront mf = new mainfront();
++        mf.setup();
+     }
+ }
+Index: src/main/java/frontend/mainfront.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/frontend/mainfront.java b/src/main/java/frontend/mainfront.java
+new file mode 100644
+--- /dev/null	(date 1711989809507)
++++ b/src/main/java/frontend/mainfront.java	(date 1711989809507)
+@@ -0,0 +1,27 @@
++package frontend;
++import javax.swing.*;
++
++public class mainfront {
++    public void setup(){
++        JFrame frame = new JFrame();
++
++        // Creating instance of JButton
++        JButton button = new JButton(" Our Frontend");
++
++        // x axis, y axis, width, height
++        button.setBounds(150, 200, 220, 50);
++
++        // adding button in JFrame
++        frame.add(button);
++
++        // 400 width and 500 height
++        frame.setSize(500, 600);
++
++        // using no layout managers
++        frame.setLayout(null);
++
++        // making the frame visible
++        frame.setVisible(true);
++
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n    <option name=\"workspaceImportForciblyTurnedOn\" value=\"true\" />\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"openjdk-21\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 6b5814264a64a123818cdf1788269758eb1de7ac)
++++ b/.idea/misc.xml	(date 1711989641269)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">

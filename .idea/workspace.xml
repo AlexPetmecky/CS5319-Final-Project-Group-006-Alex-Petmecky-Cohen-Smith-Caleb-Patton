@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3d3df4c-2c1a-4fff-b9c1-f275d5babbc9" name="Changes" comment="Button to view json" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2eVVHBiikQtJHnbXIsUEdJ8F8Jp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/alexpetmecky/Desktop/soft_arch_proj/RestaurantManagementSystem",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3d3df4c-2c1a-4fff-b9c1-f275d5babbc9" name="Changes" comment="" />
+      <created>1711989642370</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711989642370</updated>
+      <workItem from="1711989643410" duration="2516000" />
+      <workItem from="1712159853009" duration="1209000" />
+      <workItem from="1712251010761" duration="1965000" />
+      <workItem from="1712340659316" duration="3168000" />
+      <workItem from="1712433362153" duration="1975000" />
+      <workItem from="1712436597585" duration="172000" />
+      <workItem from="1712436783958" duration="3662000" />
+      <workItem from="1712593034500" duration="30000" />
+      <workItem from="1712593066506" duration="14000" />
+      <workItem from="1712593090940" duration="16000" />
+      <workItem from="1712593118060" duration="10000" />
+    </task>
+    <task id="LOCAL-00001" summary="added bare bones for frontend">
+      <option name="closed" value="true" />
+      <created>1711992021523</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711992021523</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added in/out buttons">
+      <option name="closed" value="true" />
+      <created>1712260538461</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712260538461</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added in/out buttons and event handler">
+      <option name="closed" value="true" />
+      <created>1712433921054</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433921054</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Button to view json">
+      <option name="closed" value="true" />
+      <created>1712517784157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712517784157</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added bare bones for frontend" />
+    <MESSAGE value="Added in/out buttons" />
+    <MESSAGE value="Added in/out buttons and event handler" />
+    <MESSAGE value="Button to view json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Button to view json" />
+  </component>
+</project>
