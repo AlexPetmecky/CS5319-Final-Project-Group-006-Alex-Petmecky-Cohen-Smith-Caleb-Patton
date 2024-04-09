@@ -78,7 +78,7 @@ public class Blackboard implements SubmitHandler{
 		((JSONObject)directory.get("dates").array.get(0)).put(date, updated);
 	}
 	public JSONObject getMasterDateObject() {
-		return (JSONObject)directory.get("dates").array.getFirst();
+		return (JSONObject)directory.get("dates").array.get(0);
 	}
 	public synchronized void test(String pr) {
 		System.out.println(pr);

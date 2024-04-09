@@ -3,7 +3,7 @@ public class Main {
 	EmployeeDB employeedb;
 	DateDB datedb;
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		mainfront mf = new mainfront();
 		mf.setup(new Main());
 	}
