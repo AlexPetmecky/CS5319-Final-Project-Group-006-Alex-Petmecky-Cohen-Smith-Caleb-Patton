@@ -5,7 +5,9 @@ public class Main {
 
 	public static void main(String[] args){
 		mainfront mf = new mainfront();
-		mf.setup(new Main());
+        Main m = new Main();
+		mf.setup(m);
+        ButtonHandler bh = new ButtonHandler(m);
 	}
 	
 	public Main() {
@@ -88,4 +90,21 @@ public class Main {
 		return datedb.getAllDateStrings();
 	}
     
+}
+
+class ButtonHandler implements SubmitHandler {
+    private Main main;
+
+    public ButtonHandler(Main m) {
+        main = m;
+    }
+    public void submitIn(String idNum) {
+        System.out.println("submitIn: " + idNum);
+        //main.
+
+    }
+    public void submitOut(String idNum) {
+        System.out.println("submitOut: " + idNum);
+    }
+
 }
