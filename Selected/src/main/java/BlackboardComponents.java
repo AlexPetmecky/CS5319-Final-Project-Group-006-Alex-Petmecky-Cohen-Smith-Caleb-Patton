@@ -35,13 +35,16 @@ class EmployeeDB extends BlackboardComponent {
 //		if(dateData.containsKey(String.valueOf(id))) {
 //			return false;
 //		}
-		dateData.put(String.valueOf(id), new JSONObject().put("clockin", time));
-		blackboard.writeEmployeeData(id, dateData);
+		JSONObject empd = new JSONObject();
+		empd.put("clockin", time);
+		dateData.put(String.valueOf(id), empd);
+		blackboard.writeDateData(date, dateData);
 		return true;
 	}
 	
 	public synchronized boolean clockOut(int id, String date, String time) {
 		JSONObject dateData = blackboard.getDateData(date);
+		System.out.println(dateData.toString());
 //		if(!dateData.containsKey(String.valueOf(id))) {
 //			return false;
 //		}
@@ -51,13 +54,15 @@ class EmployeeDB extends BlackboardComponent {
 		JSONObject employeeEntry = blackboard.getEmployeeData(id);
 		employeeDateEntry.put("clockout", time);
 		dateData.put(date, employeeDateEntry);
-		int currentHoursWorked = (int) employeeEntry.get("hoursworked");
-		int secondsWorkedToday = (int) employeeDateEntry.get("clockout") - (int) employeeDateEntry.get("clockin");
+		int currentHoursWorked = Integer.valueOf(  employeeEntry.get("hoursworked").toString());
+		int secondsWorkedToday = Integer.valueOf( employeeDateEntry.get("clockout").toString()) - Integer.valueOf( employeeDateEntry.get("clockin").toString());
 		//we update the employee's general entry to reflect how much they worked today
 		double hoursWorkedToday = secondsWorkedToday / 3600;
 		employeeEntry.put("hoursworked", (double) currentHoursWorked + hoursWorkedToday);
 		blackboard.writeDateData(date, dateData);
 		blackboard.writeEmployeeData(id, employeeEntry);
+		System.out.println(employeeEntry.toString());
+		System.out.println(employeeDateEntry.toString());
 		return true;
 		
 	}
