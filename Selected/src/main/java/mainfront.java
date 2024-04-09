@@ -45,9 +45,6 @@ public class mainfront {
         this.listener = listener;
     }
 
-    public void setSubmitOut (SubmitHandler listener) {
-        this.listener = listener;
-    }
 
     public void makeButtonIN(){
         // Creating instance of JButton

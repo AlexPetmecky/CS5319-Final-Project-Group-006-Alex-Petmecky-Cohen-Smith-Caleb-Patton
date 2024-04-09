@@ -1,19 +1,23 @@
+import java.time.LocalTime;
+
 public class Main {
 	Blackboard blackboard;
 	EmployeeDB employeedb;
 	DateDB datedb;
 
+    public mainfront mf;
+
 	public static void main(String[] args){
-		mainfront mf = new mainfront();
         Main m = new Main();
-		mf.setup(m);
-        ButtonHandler bh = new ButtonHandler(m);
 	}
 	
 	public Main(){
 		blackboard = new Blackboard();
 		employeedb = new EmployeeDB(blackboard);
 		datedb = new DateDB(blackboard);
+        mf = new mainfront();
+        mf.setup(this);
+        ButtonHandler bh = new ButtonHandler(this);
 	}
 	
 	public void terminate() {
@@ -71,11 +75,15 @@ public class Main {
     }
 	
 	// methods for GUI to call components
-	public boolean clockIn(int id, String date, String time) {
-		return employeedb.clockIn(id, date, time);
+	public boolean clockIn(int id, String date) {
+        //current seconds since midnight
+        int seconds = LocalTime.now().toSecondOfDay();
+		return employeedb.clockIn(id, date, "" + seconds);
 	}
-	public boolean clockOut(int id, String date, String time) {
-		return employeedb.clockOut(id, date, time);
+	public boolean clockOut(int id, String date) {
+        //current seconds since midnight
+        int seconds = LocalTime.now().toSecondOfDay();
+        return employeedb.clockOut(id, date, "" + seconds);
 	}
 	public String getEmployeeStringData(int id) {
 		return employeedb.getEmployeeStringData(id);
@@ -99,14 +107,16 @@ class ButtonHandler implements SubmitHandler {
 
     public ButtonHandler(Main m) {
         main = m;
+        main.mf.setSubmitIn(this);
     }
     public void submitIn(String idNum) {
         System.out.println("submitIn: " + idNum);
-        //main.
+        main.clockIn(Integer.parseInt(idNum), "1");
 
     }
     public void submitOut(String idNum) {
         System.out.println("submitOut: " + idNum);
+        main.clockOut(Integer.parseInt(idNum), "1");
     }
 
 }
