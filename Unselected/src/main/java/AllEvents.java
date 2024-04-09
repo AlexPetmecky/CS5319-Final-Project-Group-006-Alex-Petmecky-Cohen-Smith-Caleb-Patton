@@ -2,6 +2,7 @@ public class AllEvents implements EVENTHANDLER{
 
     private GUI gui;
     private Employees employees;
+    private Dates dates;
 
     @Override
     public void submitIn(String id) {
@@ -26,6 +27,7 @@ public class AllEvents implements EVENTHANDLER{
         gui.setShowEmployees(this);
 
         employees = new Employees();
+        dates = new Dates();
 
         gui.setup();
     }
