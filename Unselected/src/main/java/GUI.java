@@ -15,8 +15,7 @@ public class GUI {
     private ArrayList<EVENTHANDLER> showListeners = new ArrayList<>();
 
     private Main main;
-    public void setup(Main m){
-        main = m;
+    public void setup(){
         makeTextField();
         makeButtonOUT();
         makeButtonIN();
