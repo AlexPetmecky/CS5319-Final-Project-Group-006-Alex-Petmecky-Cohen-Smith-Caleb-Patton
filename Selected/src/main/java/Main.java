@@ -10,7 +10,7 @@ public class Main {
         ButtonHandler bh = new ButtonHandler(m);
 	}
 	
-	public Main() {
+	public Main(){
 		blackboard = new Blackboard();
 		employeedb = new EmployeeDB(blackboard);
 		datedb = new DateDB(blackboard);
