@@ -32,9 +32,9 @@ class EmployeeDB extends BlackboardComponent {
 	// return false if employee is already clocked in
 	public synchronized boolean clockIn(int id, String date, String time) {
 		JSONObject dateData = blackboard.getDateData(date);
-//		if(dateData.containsKey(String.valueOf(id))) {
-//			return false;
-//		}
+		if(dateData.containsKey(String.valueOf(id))) {
+			return false;
+		}
 		JSONObject empd = new JSONObject();
 		empd.put("clockin", time);
 		dateData.put(String.valueOf(id), empd);
@@ -45,9 +45,9 @@ class EmployeeDB extends BlackboardComponent {
 	public synchronized boolean clockOut(int id, String date, String time) {
 		JSONObject dateData = blackboard.getDateData(date);
 		System.out.println(dateData.toString());
-//		if(!dateData.containsKey(String.valueOf(id))) {
-//			return false;
-//		}
+		if(!dateData.containsKey(String.valueOf(id))) {
+			return false;
+		}
 		// info on the employee's activity on this day
 		JSONObject employeeDateEntry = (JSONObject)dateData.get(String.valueOf(id));
 		// general employee data entry
@@ -61,8 +61,10 @@ class EmployeeDB extends BlackboardComponent {
 		employeeEntry.put("hoursworked", (double) currentHoursWorked + hoursWorkedToday);
 		blackboard.writeDateData(date, dateData);
 		blackboard.writeEmployeeData(id, employeeEntry);
+		blackboard.terminate();
 		System.out.println(employeeEntry.toString());
 		System.out.println(employeeDateEntry.toString());
+		
 		return true;
 		
 	}
