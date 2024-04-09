@@ -92,6 +92,8 @@ public class Main {
     
 }
 
+
+// for handling GUI inputs
 class ButtonHandler implements SubmitHandler {
     private Main main;
 

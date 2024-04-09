@@ -18,6 +18,7 @@ import java.time.LocalDate;
 public class Blackboard implements SubmitHandler{
 
 	// store all data entries
+	// so that higher level components can simply get access to the database object by name
 	HashMap<String, DataEntry> directory;
 	
 	// store these for easier editing if needed
@@ -41,7 +42,7 @@ public class Blackboard implements SubmitHandler{
 
 	
 	
-	
+	// runs terminate for each database entry
 	public void terminate() {
 		for(DataEntry entry : directory.values()) {
 			entry.terminate();
@@ -49,6 +50,8 @@ public class Blackboard implements SubmitHandler{
 	}
 	
 	
+	
+	// methods to be used by components to get and write data to databases
 	public JSONObject getEmployeeData(int id) {
 		return (JSONObject)directory.get("employees").array.get(id);
 	}
@@ -97,21 +100,23 @@ public class Blackboard implements SubmitHandler{
 	}
 }
 
+
+// these are objects for each database entry (employees, dates)
 class DataEntry{
 	public JSONArray array;
 	private String directory;
-	
 	public DataEntry(String dir) {
 		directory = dir;
 		JSONParser parser = new JSONParser();
 		try {
-			// probably want to add something here that creates the file if it doesn't exist
 			array = (JSONArray)(parser.parse(new FileReader(directory)));
 		} catch (IOException | ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	// run for each data entry on process termination
+	// saves the updates contents back to a file
 	public void terminate() {
 		FileWriter writer;
 		try {

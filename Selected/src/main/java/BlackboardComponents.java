@@ -7,8 +7,8 @@ import java.io.FileNotFoundException;
 
 class BlackboardComponent {
 	Blackboard blackboard;
-	HashMap<String, Integer> valueMap;
 	
+	// every blackboard component needs reference to the blackboard
 	public BlackboardComponent(Blackboard bb) {
 		blackboard = bb;
 	}
@@ -36,6 +36,7 @@ class EmployeeDB extends BlackboardComponent {
 			return false;
 		}
 		dateData.put(String.valueOf(id), new JSONObject().put("clockin", time));
+		blackboard.writeEmployeeData(id, dateData);
 		return true;
 	}
 	
@@ -44,12 +45,15 @@ class EmployeeDB extends BlackboardComponent {
 		if(!dateData.containsKey(String.valueOf(id))) {
 			return false;
 		}
+		// info on the employee's activity on this day
 		JSONObject employeeDateEntry = (JSONObject)dateData.get(String.valueOf(id));
+		// general employee data entry
 		JSONObject employeeEntry = blackboard.getEmployeeData(id);
 		employeeDateEntry.put("clockout", time);
 		dateData.put(date, employeeDateEntry);
 		int currentHoursWorked = (int) employeeEntry.get("hoursworked");
 		int hoursWorkedToday = (int) employeeDateEntry.get("clockout") - (int) employeeDateEntry.get("clockin");
+		//we update the employee's general entry to reflect how much they worked today
 		employeeEntry.put("hoursworked", currentHoursWorked + hoursWorkedToday);
 		blackboard.writeDateData(date, dateData);
 		blackboard.writeEmployeeData(id, employeeEntry);
@@ -57,6 +61,7 @@ class EmployeeDB extends BlackboardComponent {
 		
 	}
 	
+	// get string methods are used for display by the GUI
 	public synchronized String getEmployeeStringData(int id) {
 		JSONObject employee = blackboard.getEmployeeData(id);
 		return employee.toString();
