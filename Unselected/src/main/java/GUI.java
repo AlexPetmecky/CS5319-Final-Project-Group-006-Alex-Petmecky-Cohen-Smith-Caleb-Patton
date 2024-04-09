@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+//arraylist
+import java.util.ArrayList;
 
 public class GUI {
     public static JTextField txt = new JTextField("Employee ID",1);
@@ -8,7 +10,10 @@ public class GUI {
     public static JButton button_out = new JButton("Clock Out");
     public static JButton showJson = new JButton("Show Current Employees");
 
-    private EVENTHANDLER listener;
+    private ArrayList<EVENTHANDLER> inListeners = new ArrayList<>();
+    private ArrayList<EVENTHANDLER> outListeners = new ArrayList<>();
+    private ArrayList<EVENTHANDLER> showListeners = new ArrayList<>();
+
     private Main main;
     public void setup(Main m){
         main = m;
@@ -42,11 +47,15 @@ public class GUI {
     }
 
     public void setSubmitIn (EVENTHANDLER listener) {
-        this.listener = listener;
+        this.inListeners.add(listener);
     }
 
     public void setSubmitOut (EVENTHANDLER listener) {
-        this.listener = listener;
+        this.outListeners.add(listener);
+    }
+
+    public void setShowEmployees (EVENTHANDLER listener) {
+        this.showListeners.add(listener);
     }
 
     public void makeButtonIN(){
@@ -62,8 +71,9 @@ public class GUI {
                 String newtxt = txt.getText();
                 txt.setText("");
                 System.out.println(newtxt);
-                if (listener != null) listener.submitIn (newtxt);
-
+                for (EVENTHANDLER listener : inListeners) {
+                    listener.submitIn(newtxt);
+                }
             }
         });
 
@@ -84,8 +94,9 @@ public class GUI {
                 String newtxt = txt.getText();
                 txt.setText("");
                 System.out.println(newtxt);
-                if (listener != null) listener.submitOut (newtxt);
-
+                for (EVENTHANDLER listener : outListeners) {
+                    listener.submitOut(newtxt);
+                }
             }
         });
     }
@@ -118,6 +129,9 @@ public class GUI {
                 // making the frame visible
                 frame.setVisible(true);
 
+                for (EVENTHANDLER listener : showListeners) {
+                    listener.showEmployees();
+                }
             }
         });
     }
