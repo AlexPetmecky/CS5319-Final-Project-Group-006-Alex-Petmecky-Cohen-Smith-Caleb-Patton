@@ -11,7 +11,7 @@ public class mainfront {
     private SubmitHandler listener;
     private Main main;
     public void setup(Main m){
-    	main = m;
+        main = m;
         makeTextField();
         makeButtonOUT();
         makeButtonIN();
@@ -102,10 +102,21 @@ public class mainfront {
                 JFrame frame = new JFrame();
 
 
-                
+                JLabel label0 = new JLabel("All Employees");
+                label0.setBounds(150,0,620,25);
+
                 JLabel label1 = new JLabel(main.formatJsonString(main.getAllEmployeesString()));
-                label1.setBounds(150,150,620,500);
+                label1.setBounds(150,25,620,175);
+                frame.add(label0);
                 frame.add(label1);
+
+                JLabel label3 = new JLabel("Time Keeping");
+                label3.setBounds(150,225,620,25);
+                JLabel label4 = new JLabel(main.formatJsonString(main.getAllDateStrings()));
+                label4.setBounds(150,250,620,150);
+
+                frame.add(label3);
+                frame.add(label4);
 
                 frame.setSize(500, 600);
 
