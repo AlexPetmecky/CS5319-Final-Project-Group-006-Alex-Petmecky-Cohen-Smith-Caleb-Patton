@@ -8,7 +8,7 @@ public class Main {
 		mf.setup(new Main());
 	}
 	
-	public Main() {
+	public Main(){
 		blackboard = new Blackboard();
 		employeedb = new EmployeeDB(blackboard);
 		datedb = new DateDB(blackboard);
