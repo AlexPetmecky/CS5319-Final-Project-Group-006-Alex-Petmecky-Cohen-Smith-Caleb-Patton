@@ -9,8 +9,9 @@ public class mainfront {
     public static JButton showJson = new JButton("Show Current Employees");
 
     private SubmitHandler listener;
-
-    public void setup(){
+    private Main main;
+    public void setup(Main m){
+    	main = m;
         makeTextField();
         makeButtonOUT();
         makeButtonIN();
@@ -104,9 +105,9 @@ public class mainfront {
                 JFrame frame = new JFrame();
 
 
-
-                JLabel label1 = new JLabel("Test");
-                label1.setBounds(150,150,220,50);
+                
+                JLabel label1 = new JLabel(main.formatJsonString(main.getAllEmployeesString()));
+                label1.setBounds(150,150,620,500);
                 frame.add(label1);
 
                 frame.setSize(500, 600);

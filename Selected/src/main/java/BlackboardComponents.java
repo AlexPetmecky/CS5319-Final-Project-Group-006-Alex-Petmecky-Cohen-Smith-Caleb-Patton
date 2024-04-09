@@ -61,6 +61,14 @@ class EmployeeDB extends BlackboardComponent {
 		JSONObject employee = blackboard.getEmployeeData(id);
 		return employee.toString();
 	}
+	public synchronized String getAllEmployeesString() {
+		JSONArray employees = blackboard.getAllEmployees();
+		String result = "";
+		for(int i = 0; i < employees.size(); i++) {
+			result += "<br/>" + getEmployeeStringData(i) + "<br/>";
+		}
+		return result;
+	}
 
 	public void saveEmployeesToFile() {
 		// returns true if successful

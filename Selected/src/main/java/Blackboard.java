@@ -62,6 +62,10 @@ public class Blackboard implements SubmitHandler{
 		return true;
 	}
 	
+	public JSONArray getAllEmployees() {
+		return (JSONArray)directory.get("employees").array;
+	}
+	
 	public JSONObject getDateData(String date) {
 		JSONObject object = (JSONObject)directory.get("dates").array.get(0);
 
